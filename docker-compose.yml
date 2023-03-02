@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+    postgres:
+        image: postgres:latest
+        volumes:
+            - \\wsl$\docker-desktop-data\data\docker\volumes
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+        ports:
+            - "5432:5432"
+    pg-admin:
+        image: dpage/pgadmin4:6
+        environment:
+            - PGADMIN_DEFAULT_EMAIL=''
+            - PGADMIN_DEFAULT_PASSWORD=admin
+            - PGADMIN_LISTEN_PORT=5050
+        ports:
+            - "5050:5050"
+
+    nginx:
+        image: nginx:latest
+        depends_on: [postgres]
+        ports:
+            - 80:80
+volumes:
+  postgres:

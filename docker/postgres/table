@@ -1,0 +1,12 @@
+--
+-- PostgreSQL database 
+--
+
+--
+-- Name: common_settings; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.common_settings (
+    id character varying(64) NOT NULL,
+    json jsonb
+);
