@@ -1,9 +1,9 @@
 version: "3.8"
 services:
     postgres:
-        image: postgres:latest
+        image: postgres:dev
         volumes:
-            - \\wsl$\docker-desktop-data\data\docker\volumes
+            - \\wsl$\docker-desktop-data\data\docker\volumes\my-vol
         environment:
             - POSTGRES_USER=postgres
             - POSTGRES_PASSWORD=postgres
@@ -19,7 +19,7 @@ services:
             - "5050:5050"
 
     nginx:
-        image: nginx:latest
+        image: nginx:dev
         depends_on: [postgres]
         ports:
             - 80:80
